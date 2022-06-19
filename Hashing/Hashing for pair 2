@@ -1,0 +1,21 @@
+class Geeks {
+    // Complete this function
+    // Function to check if two numbers in array have sum equal to the given
+    // sum.
+    public static int sumExists(int arr[], int N, int sum) {
+
+        // Your code here
+        int count = 0;
+        HashSet<Integer> hset = new HashSet<Integer>();
+        for (int i = 0; i < N; i++)
+        {
+            if (hset.contains(sum-arr[i]))
+                count++;
+            else
+                hset.add(arr[i]);
+        }
+        if (count > 0)
+            return 1;
+        return 0;
+    }
+}
