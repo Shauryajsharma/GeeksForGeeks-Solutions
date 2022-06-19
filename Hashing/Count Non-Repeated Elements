@@ -1,0 +1,27 @@
+class Solution
+{
+    // arr[]: input array
+    // n: size of array
+    
+    //Function to return the count of non-repeated elements in the array.
+    static long countNonRepeated(int arr[], int n)
+    {
+        // add your code
+        HashMap<Integer, Integer> hmap = new HashMap<Integer, Integer>();
+        for (int i = 0; i < n; i++)
+        {
+            Integer c = hmap.get(arr[i]);
+            if (hmap.get(arr[i]) == null)
+                hmap.put(arr[i], 1);
+            else
+                hmap.put(arr[i], ++c);
+        }
+        long count = 0;
+        for (Map.Entry<Integer, Integer> e : hmap.entrySet())
+        {
+            if (e.getValue() == 1)
+                count++;
+        }
+        return count;
+    }
+}
