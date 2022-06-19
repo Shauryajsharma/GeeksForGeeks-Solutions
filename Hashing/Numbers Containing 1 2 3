@@ -1,0 +1,26 @@
+public static void findAll()
+{
+    //Your code here
+    HashSet<Integer> hset = new HashSet<Integer>();
+    for (int i = 1; i <= 3; i++)
+    {
+        hset.add(i);
+    }
+    for (int i = 1; i < 1000000; i++)
+    {
+        int number = i;
+        boolean flag = true;
+        while (number > 0)
+        {
+            int rem = number%10;
+            number /= 10;
+            if (!hset.contains(rem))
+            {
+                flag = false;
+                break;
+            }
+        }
+        if (flag)
+            mp.put(i, 1);
+    }
+}
