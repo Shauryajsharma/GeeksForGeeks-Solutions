@@ -1,0 +1,21 @@
+class Solution {
+    // Function to return the position of the first repeating element.
+    public static int firstRepeated(int[] arr, int n) {
+        // Your code here
+        HashMap<Integer, Integer> hmap = new HashMap<Integer, Integer>();
+        for (int i = 0; i < n; i++)
+        {
+            Integer c = hmap.get(arr[i]);
+            if (hmap.get(arr[i]) == null)
+                hmap.put(arr[i], 1);
+            else
+                hmap.put(arr[i], ++c);
+        }
+        for (int i = 0; i < n; i++)
+        {
+            if (hmap.get(arr[i]) > 1)
+                return i+1;
+        }
+        return -1;
+    }
+}
